@@ -1,17 +1,17 @@
 %All of this chapter should be removed eventually
-\chapter{How to get the most out of this template} \label{cha:how-to-template}
+\section{How to get the most out of this template} \label{cha:how-to-template}
 This section is aimed to help you using this template. It does not aim to teach you how to use \LaTeX as there are plenty of resources that would do a far more effective job. Some places to start are included in section \ref{sec:latex_resources}.
 
 Instead the aim here is is to help a relatively inexperienced \LaTeX user navigate the template, point them to places they can learn more, give some helpful hints and examples of cool stuff you can do.
 
-\section{Setting up this template}
+\subsection{Setting up this template}
 
-\subsection{Template}
+\subsubsection{Template}
 You can use the code behind this project as your starting point, however, you will have to go through the process of removing all the guidance text. It may therefore be more advisable to use the blank template to start and then use this as your reference.
 
 If you do choose to use this document as your starting point you can remove this chapter (no. \ref{cha:how-to-template}) by taking out the input command in \verb|main.tex| that refers to this file and the \verb|guidance-example-section| folder.
 
-\subsection{Metadata}
+\subsubsection{Metadata}
 Your first steps upon starting working with this template should be to edit lines \numrange{6}{11} in \verb|main.tex|. They should currently read as:
 
 \begin{minted}[]{latex}
@@ -25,7 +25,7 @@ Your first steps upon starting working with this template should be to edit line
 
 Replace the text in black in the squigly brackets \{\} with your details and the details of your assignment and they will be updated on the title page, header and footer through the document.
 
-\subsection{Style}
+\subsubsection{Style}
 This template has been set up to best match the university style and uses appropriate fonts, logos, etc.
 
 The University also has a published house style guide \parencite{uniofbirmingham2024housestyleguide} that may prove useful. For example the following guidance is given for headings:
@@ -34,7 +34,7 @@ The University also has a published house style guide \parencite{uniofbirmingham
     Headings should always be in sentence case and without a full stop. This is an initial capital followed by all lower case (unless a proper noun appears in the heading). This includes left-hand navigation bars on the web. Use sentence case for events. Do not use initial capitals for emphasis anywhere.
 \end{quote}
 
-\section{\LaTeX resources} \label{sec:latex_resources}
+\subsection{\LaTeX resources} \label{sec:latex_resources}
 You are obviously free to use any service or setup to edit and compile your \LaTeX documents but we would recommend Overleaf (as of Nov. 2024). It is web based so you don't need to install software and you should be able to access it from any computer. There is also a professional license for all students and staff in EPS (College of Engineering and Physical Sciences) accessed through UoB single sign-on.
 
 Here are some handy starting points for getting started with \LaTeX for you to explore.
@@ -57,9 +57,9 @@ Here are some handy starting points for getting started with \LaTeX for you to e
         \end{itemize}
 \end{itemize}
 
-\section{Some interesting examples of things \LaTeX can do}
+\subsection{Some interesting examples of things \LaTeX can do}
 
-\subsection{Referencing}
+\subsubsection{Referencing}
 For documents produced for the MSc it is a requirement to use Harvard style referencing (Author-Date), luckily \LaTeX can handle remove most of the headache normally associated with managing references. This document template is setup to cite and produce a bibliography inline with these requirements.
 
 It may be a good idea to manage your references with a reference manager, some examples of these are Zotero, EndNote or Mendeley. All will export your references in a \verb|.bib| file which \LaTeX can read. If you are using Overleaf then at the time of writing there are integrations for both Zotero and Mendeley which enable library syncing which may be a nice feature for you.
@@ -68,7 +68,7 @@ Once you have a bib file it is very simple to create a citation, for Harvard sty
 
 The references section at the end of the document is created through the \verb|\printbibliography| command at the end of the document and will include only the citations made in the document.
 
-\subsection{Numbers and units}
+\subsubsection{Numbers and units}
 \verb|siunitx| is a package that allows for better number and unit typesetting. The full documentation gives an excellent guide \parencite{wright2024siunitx} but here are a few examples as a starting point.
 
 Here are some examples of typesetting numbers:
@@ -110,7 +110,7 @@ Units and numbers can then be combined together in qty:
     \item \qtylist{30;45;70;90;150}{\km \per \hour}
 \end{itemize}
 
-\subsection{Figures}
+\subsubsection{Figures}
 
 \begin{figure}[H]
     \centering
@@ -133,15 +133,15 @@ Figures \ref{fig:fourier_series_square_wave_csv} and \ref{fig:fourier_series_squ
 
 This can be a very useful as if you want to change the way your data is plotted (or the data that is plotted), you can change it directly in Latex without having to re-export from your tool every time.
 
-\subsubsection{Image Formats}
+\textbf{Image Formats}
 As a rule of thumb vector images are preferable over rasterized images. \LaTeX's preferred format for vector images is \verb|.pdf| files. There are other vector formats including \verb|.svg| and \verb|.eps| which you can convert between with a bit of google assistance.
 
-For raster images (\verb|.png|, \verb|.jpg|, etc.) the usual guidance applies, try where possible to use high quality images, especially high resolution. It is worth noting that \Latex allows the use of the scale command when specifying an image size which would allow the natural size or integer scaling of the natural size to maximise image quality.
+For raster images (\verb|.png|, \verb|.jpg|, etc.) the usual guidance applies, try where possible to use high quality images, especially high resolution. It is worth noting that \LaTeX allows the use of the scale command when specifying an image size which would allow the natural size or integer scaling of the natural size to maximise image quality.
 
 If you want to learn more about image types then Adobe have produced an article that covers the difference between raster and vector images\cite{adobe-raster-vector}.
 
 
-\subsection{Equations}
+\subsubsection{Equations}
 \LaTeX allows you to do inline equations, i.e. $y=mx+c$, or set on their own line, such as equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}.
 
 \begin{equation}
@@ -166,7 +166,7 @@ If you want to learn more about image types then Adobe have produced an article 
     f(x) = \frac{4}{\pi} \sum_{n=1,3,5,\ldots}^\infty \frac{1}{n} sin(\frac{n \pi x}{L})
 \end{equation}
 
-\subsection{Tables}
+\subsubsection{Tables}
 
 \begin{table}[h]
 \centering
