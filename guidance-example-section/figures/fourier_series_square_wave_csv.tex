@@ -1,0 +1,29 @@
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.8\textwidth,
+            height=0.6\textwidth,
+            axis lines = left,
+            xlabel = {x},
+            ylabel = {y},
+            xmajorgrids=true,
+            ymajorgrids=true,
+            ymin=-1,
+            ymax=1,
+            xmin=0,
+            xmax=7
+        ]
+            \addplot[color=blue] table [x=x, y=1_term, col sep=comma]{guidance-example-section/data/fourier_series_square_wave.csv};
+            \addlegendentry{1 term}
+            \addplot[color=red] table [x=x, y=2_term, col sep=comma]{guidance-example-section/data/fourier_series_square_wave.csv};
+            \addlegendentry{2 terms}
+            \addplot[color=brown] table [x=x, y=3_term, col sep=comma]{guidance-example-section/data/fourier_series_square_wave.csv};
+            \addlegendentry{3 terms}
+            \addplot[color=black] table [x=x, y=20_term, col sep=comma]{guidance-example-section/data/fourier_series_square_wave.csv};
+            \addlegendentry{20 terms}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Fourier series approximation of a square wave with varying number of cosine terms. Plotted with pgfplots from stored csv data}
+    \label{fig:fourier_series_square_wave_csv}
+\end{figure}

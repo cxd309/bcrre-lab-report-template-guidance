@@ -1,0 +1,189 @@
+%All of this chapter should be removed eventually
+\chapter{How to get the most out of this template} \label{cha:how-to-template}
+This section is aimed to help you using this template. It does not aim to teach you how to use \LaTeX as there are plenty of resources that would do a far more effective job. Some places to start are included in section \ref{sec:latex_resources}.
+
+Instead the aim here is is to help a relatively inexperienced \LaTeX user navigate the template, point them to places they can learn more, give some helpful hints and examples of cool stuff you can do.
+
+\section{Setting up this template}
+
+\subsection{Template}
+You can use the code behind this project as your starting point, however, you will have to go through the process of removing all the guidance text. It may therefore be more advisable to use the blank template to start and then use this as your reference.
+
+If you do choose to use this document as your starting point you can remove this chapter (no. \ref{cha:how-to-template}) by taking out the input command in \verb|main.tex| that refers to this file and the \verb|guidance-example-section| folder.
+
+\subsection{Metadata}
+Your first steps upon starting working with this template should be to edit lines \numrange{6}{11} in \verb|main.tex|. They should currently read as:
+
+\begin{minted}[]{latex}
+% Document metadata
+% fill these in to update header, footer and titlepage
+\def\modulename{Module Name}
+\def\assignmenttitle{Assignment Title}
+\def\studentidnumber{Student ID Number}
+\def\datesubmitted{Date Submitted}
+\end{minted}
+
+Replace the text in black in the squigly brackets \{\} with your details and the details of your assignment and they will be updated on the title page, header and footer through the document.
+
+\subsection{Style}
+This template has been set up to best match the university style and uses appropriate fonts, logos, etc.
+
+The University also has a published house style guide \parencite{uniofbirmingham2024housestyleguide} that may prove useful. For example the following guidance is given for headings:
+
+\begin{quote}
+    Headings should always be in sentence case and without a full stop. This is an initial capital followed by all lower case (unless a proper noun appears in the heading). This includes left-hand navigation bars on the web. Use sentence case for events. Do not use initial capitals for emphasis anywhere.
+\end{quote}
+
+\section{\LaTeX resources} \label{sec:latex_resources}
+You are obviously free to use any service or setup to edit and compile your \LaTeX documents but we would recommend Overleaf (as of Nov. 2024). It is web based so you don't need to install software and you should be able to access it from any computer. There is also a professional license for all students and staff in EPS (College of Engineering and Physical Sciences) accessed through UoB single sign-on.
+
+Here are some handy starting points for getting started with \LaTeX for you to explore.
+
+\begin{itemize}
+    \item Overleaf Documentation \parencite{overleaf-documentation}
+        \begin{itemize}
+            \item As well as being a good option for managing your \LaTeX projects, the documentation and guidance provided by Overleaf is rather good.
+            \item A good starting point may be the learn \LaTeX in 30 minutes guide \url{www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}
+        \end{itemize}
+    \item ShareLaTeX YouTube Guides \parencite{youtube-sharelatex-channel}
+        \begin{itemize}
+            \item A youtube channel recommended by the University library service that provides a number of guides.
+            \item \url{https://www.youtube.com/@ShareLaTeX/videos}
+        \end{itemize}
+    \item University resources
+        \begin{itemize}
+            \item There are often events through the year that are useful for getting started with LaTeX. There is a planned lecture as an introduction in the Engineering Department.
+            \item The University Computer Science Society (CSS) and Hacking Society (AFNOM)  run a series of lunchtime lectures through the year called the missing semester \parencite{missing-semester}, this included a session on \LaTeX  the notes for which can be found at:  \url{https://missingsemester.afnom.net/2024/latex/}
+        \end{itemize}
+\end{itemize}
+
+\section{Some interesting examples of things \LaTeX can do}
+
+\subsection{Referencing}
+For documents produced for the MSc it is a requirement to use Harvard style referencing (Author-Date), luckily \LaTeX can handle remove most of the headache normally associated with managing references. This document template is setup to cite and produce a bibliography inline with these requirements.
+
+It may be a good idea to manage your references with a reference manager, some examples of these are Zotero, EndNote or Mendeley. All will export your references in a \verb|.bib| file which \LaTeX can read. If you are using Overleaf then at the time of writing there are integrations for both Zotero and Mendeley which enable library syncing which may be a nice feature for you.
+
+Once you have a bib file it is very simple to create a citation, for Harvard style \verb|\parencite| cites in brackets, \verb|\textcite| is inline text, \verb|\autocite| tries to make the choice based on context. 
+
+The references section at the end of the document is created through the \verb|\printbibliography| command at the end of the document and will include only the citations made in the document.
+
+\subsection{Numbers and units}
+\verb|siunitx| is a package that allows for better number and unit typesetting. The full documentation gives an excellent guide \parencite{wright2024siunitx} but here are a few examples as a starting point.
+
+Here are some examples of typesetting numbers:
+\begin{itemize}
+    \item \num{125}
+    \item \num{12345}
+    \item \num{1.2e34}
+    \item \num{1.2e-3}
+    \item \ang{12.34}
+    \item \numlist{1;23;4567}
+    \item \numrange{90}{125}
+\end{itemize}
+
+Here are some examples of typesetting units, they can either be input in math style or interpreted:
+\begin{itemize}
+    \item \unit{km/hr}
+    \item \unit{kg.m/s^2}
+    \item \unit{m/s}
+    \item \unit{\metre \per \second}
+    \item \unit{\square\volt\cubic\lumen\per\farad}
+\end{itemize}
+
+Units and numbers can then be combined together in qty:
+\begin{itemize}
+    \item Speed of light ($c$): 
+        \begin{itemize}
+            \item \qty{299792458}{m.s^{-1}}
+            \item \qty{3.0e8}{\metre\per\second}
+        \end{itemize}
+    \item Planck constant ($h$): 
+        \begin{itemize}
+            \item \qty{6.63e-34}{J.Hz^{-1}}
+        \end{itemize}
+    \item Newtonian constant of gravitation ($G$): 
+        \begin{itemize}
+            \item \qty{6.67e-11}{m^3.kg^{-1}.s^{-2}}
+        \end{itemize}
+    \item \qtyrange{90}{125}{mph}
+    \item \qtylist{30;45;70;90;150}{\km \per \hour}
+\end{itemize}
+
+\subsection{Figures}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{images/uob_logo.pdf}
+    \caption{University of Birmingham Logo}
+    \label{fig:uob_logo}
+\end{figure}
+
+This template uses the \verb|graphicx| package for figures. Figure \ref{fig:uob_logo} is a example of a  basic image as a figure.
+
+\input{guidance-example-section/figures/rathbone2017.tex}
+
+Figure \ref{fig:rathbone2017} is a slightly more complicated figure. It is a single figure that contains the sub figures \ref{fig:rathbone2017circle}, \ref{fig:rathbone2017dlr}, \ref{fig:rathbone2017northern} and \ref{fig:rathbone2017piccadilly}. For more complex sections of code for large figures like this is can be useful to store that section in a seperate \verb|.tex| file as has been done here and in subsequent plots.
+
+\input{guidance-example-section/figures/fourier_series_square_wave_csv}
+
+\input{guidance-example-section/figures/fourier_series_square_wave_calculated}
+
+Figures \ref{fig:fourier_series_square_wave_csv} and \ref{fig:fourier_series_square_wave_csv} both show figures plotted with the pgfplots package. Figure \ref{fig:fourier_series_square_wave_csv} is plotted from data stored in a csv file, while Figure \ref{fig:fourier_series_square_wave_calculated} is plotted directly from a set of functions. 
+
+This can be a very useful as if you want to change the way your data is plotted (or the data that is plotted), you can change it directly in Latex without having to re-export from your tool every time.
+
+\subsubsection{Image Formats}
+As a rule of thumb vector images are preferable over rasterized images. \LaTeX's preferred format for vector images is \verb|.pdf| files. There are other vector formats including \verb|.svg| and \verb|.eps| which you can convert between with a bit of google assistance.
+
+For raster images (\verb|.png|, \verb|.jpg|, etc.) the usual guidance applies, try where possible to use high quality images, especially high resolution. It is worth noting that \Latex allows the use of the scale command when specifying an image size which would allow the natural size or integer scaling of the natural size to maximise image quality.
+
+If you want to learn more about image types then Adobe have produced an article that covers the difference between raster and vector images\cite{adobe-raster-vector}.
+
+
+\subsection{Equations}
+\LaTeX allows you to do inline equations, i.e. $y=mx+c$, or set on their own line, such as equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}.
+
+\begin{equation}
+    \label{eq:1}
+    f(x) = 2[H \frac{x}{L} - H(\frac{x}{L} - 1)] - 1
+\end{equation}
+
+\begin{equation}
+    \label{eq:2}
+    \begin{split}
+        b_n & = \frac{1}{L} \int_0^{2L} f(x) sin(\frac{n \pi x}{L}) dx \\
+            & = \frac{4}{n \pi} 
+        \begin{cases}
+            0 &\text{$n$ \textit{even}} \\
+            1 &\text{$n$ \textit{odd}}
+        \end{cases}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \label{eq:3}
+    f(x) = \frac{4}{\pi} \sum_{n=1,3,5,\ldots}^\infty \frac{1}{n} sin(\frac{n \pi x}{L})
+\end{equation}
+
+\subsection{Tables}
+
+\begin{table}[h]
+\centering
+\caption{Example simple table}
+\label{tab:simple-table}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Name & Age \\ \midrule
+Adam & 30 \\
+Eve & 30 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{tab:simple-table} is an example of a very simple table, but there is the possibility of making them more complex, table \ref{tab:lu_line_colour_reference} has a little more data, includes some cell shading and has been placed on it's own seperate page, printed in landscape.
+
+\input{guidance-example-section/tables/lu_line_colour_reference}
+
+It is also possible to load data in directly from a \verb|.csv| file and then display in a table. This has been done for table \ref{tab:TSGB0101}
+
+\input{guidance-example-section/tables/TSGB0101}
