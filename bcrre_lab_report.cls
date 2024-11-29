@@ -1,7 +1,7 @@
 % general setup
 % known working with LuaLaTeX as complier
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{bcrre_assignment}
+\ProvidesClass{bcrre_lab_report}
 \LoadClass[11pt]{article}
 
 
